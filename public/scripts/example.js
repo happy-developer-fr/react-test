@@ -3,7 +3,13 @@ var rootUrl = "http://swapi.co/api/people";
 var Hero = React.createClass({
   render: function(){
     return (
-      <div> I am {this.props.name}</div>
+      <div> I am {this.props.data.name}
+        <ul>
+          <li>
+            Height : {this.props.data.height }
+          </li>
+        </ul>
+      </div>
     )
   }
 });
@@ -14,7 +20,7 @@ var HeroList = React.createClass({
       var i = 0;
       var heroes = this.props.data.results.map(function(hero){
         return (
-          <Hero name={hero.name} key={i++}/>
+          <Hero data={hero} key={i++}/>
         );
       });
     }
